@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikacija sa obrascem</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Povezivanje vanjske CSS datoteke -->
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Aplikacija sa obrascem</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Početna</a></li>
+                    <li><a href="#">O nama</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="main" class="container">
+        <h2>Dodaj novu stavku</h2>
+        <form id="itemForm">
+            <div>
+                <label for="item">Stavka:</label>
+                <input type="text" id="item" name="item" required>
+            </div>
+            <div>
+                <button type="submit">Dodaj</button>
+            </div>
+        </form>
+        <div id="items">
+            <h2>Stavke</h2>
+            <div class="item">Stavka 1</div>
+            <div class="item">Stavka 2</div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('itemForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var itemText = document.getElementById('item').value;
+            var newItem = document.createElement('div');
+            newItem.className = 'item';
+            newItem.appendChild(document.createTextNode(itemText));
+            document.getElementById('items').appendChild(newItem);
+            document.getElementById('item').value = '';
+        });
+    </script>
+</body>
+</html>
